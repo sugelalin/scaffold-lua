@@ -19,6 +19,7 @@ local function spawnChecker(premature)
             valid_statuses = {200, 302},
             concurrency = 1,
         }
+        ngx.log(ngx.ERR, ok)
         if not ok then
             ngx.log(ngx.ERR, "failed to spawn health checker: ", err)
             return
