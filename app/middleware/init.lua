@@ -6,7 +6,7 @@ local function spawnChecker(premature)
         return
     end
     ngx.log(ngx.ERR, "ngx.worker.id=" .. ngx.worker.id())
-    if ngx.worker.id() == 1 then
+    -- if ngx.worker.id() == 1 then
         local ok, err = hc.spawn_checker {
             shm = "healthcheck",
             upstream = "localhost-upstream",
@@ -24,7 +24,8 @@ local function spawnChecker(premature)
             ngx.log(ngx.ERR, "failed to spawn health checker: ", err)
             return
         end
-    end
+        -- ngx.timer.at(2, updateMemList)
+    -- end
 end
 
 ngx.timer.at(0, spawnChecker)
