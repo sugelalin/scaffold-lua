@@ -11,7 +11,7 @@ local function spawnChecker(premature)
             shm = "healthcheck",
             upstream = "localhost-upstream",
             type = "http",
-            http_req = "GET /status HTTP/1.0\r\nHost: 127.0.0.1\r\n\r\n",
+            http_req = "GET /status HTTP/1.0\r\nHost: 127.0.0.1:8900\r\n\r\n",
             interval = 1000,
             timeout = 1000,
             fall = 2,
